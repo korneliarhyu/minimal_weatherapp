@@ -1,4 +1,4 @@
 // api services
 
 const String baseUrl = 'http://api.weatherapi.com/v1/';
-const String apiKey = '0727f265c0db4e0383183233252502';
+const String apiKey = '11251a4549ca4ab9a0394342252502';

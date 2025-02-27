@@ -1,21 +1,19 @@
 class Weather {
-  final String cityName;
-  final double temprature;
-  final String mainCondition;
+  final String city;
+  final double temperature;
+  final String condition;
 
   Weather({
-    required this.cityName,
-    required this.temprature,
-    required this.mainCondition,
+    required this.city,
+    required this.temperature,
+    required this.condition,
   });
 
   factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
-        cityName: json['cityName'],
-        // convert the temprature to double
-        temprature: json['main']['temp'].toDouble(),
-        mainCondition: json['weather'][0]['main'],
+      city: json['location']['name'] ?? "Unknown",
+      temperature: (json['current']?['temp_c'] ?? 0.0).toDouble(),
+      condition: json['current']['condition']['text'] ?? 'Unknown',
     );
   }
-
 }
